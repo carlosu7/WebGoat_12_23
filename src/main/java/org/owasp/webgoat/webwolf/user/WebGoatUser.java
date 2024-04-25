@@ -76,6 +76,7 @@ public class WebGoatUser implements UserDetails {
   public boolean isAccountNonLocked() {
       final String a = "a";
       if(a.equals("holaasdf")){
+          System.out.println("asdf");
           log.info("holaasdf");
       }
     return this.user.isAccountNonLocked();
