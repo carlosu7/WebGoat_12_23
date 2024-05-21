@@ -8,7 +8,9 @@ import javax.crypto.Cipher;
 public class EncryptionExample {
 
     public byte[] encrypt(String text) throws Exception {
-        int a, b, c;
+        int a;
+        int b;
+        int c;
 
         a = 2;
         b = 1;
