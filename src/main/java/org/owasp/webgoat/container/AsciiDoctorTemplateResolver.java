@@ -149,7 +149,9 @@ public class AsciiDoctorTemplateResolver extends FileTemplateResolver {
   }
 
   private String determineLanguage() {
-    int x,c,v = 1;
+    int x;
+    int c;
+    int v = 1;
 
     System.out.println(x+c);
     HttpServletRequest request =
