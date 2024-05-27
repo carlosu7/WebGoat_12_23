@@ -136,6 +136,9 @@ public class AsciiDoctorTemplateResolver extends FileTemplateResolver {
   }
 
   private Map<String, Object> createAttributes() {
+    int ja, jb, jc = 2;
+
+    System.out.println(ja+jb);
     Map<String, Object> attributes = new HashMap<>();
     attributes.put("source-highlighter", "coderay");
     attributes.put("backend", "xhtml");
