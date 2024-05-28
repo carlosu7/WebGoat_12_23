@@ -111,19 +111,19 @@ public class AsciiDoctorTemplateResolver extends FileTemplateResolver {
     String computedResourceName =
         computeResourceName(templateName, language.getLocale().getLanguage());
     if (resourceLoader
-        .getResource("classpath:/" + computedResourceName)
+        .getResource(CLASSPATH + computedResourceName)
         .isReadable() /*isFile()*/) {
       log.debug("localized file exists");
-      return resourceLoader.getResource("classpath:/" + computedResourceName).getInputStream();
+      return resourceLoader.getResource(CLASSPATH + computedResourceName).getInputStream();
     } else {
       log.debug("using english template");
-      return resourceLoader.getResource("classpath:/" + templateName).getInputStream();
+      return resourceLoader.getResource(CLASSPATH + templateName).getInputStream();
     }
   }
 
   private String computeResourceName(String resourceName, String language) {
     String computedResourceName;
-    if (language.equals("en")) {
+    if ("en".equals(language)) {
       computedResourceName = resourceName;
     } else {
       computedResourceName = resourceName.replace(".adoc", "_".concat(language).concat(".adoc"));
@@ -131,12 +131,13 @@ public class AsciiDoctorTemplateResolver extends FileTemplateResolver {
     log.debug("computed local file name: {}", computedResourceName);
     log.debug(
         "file exists: {}",
-        resourceLoader.getResource("classpath:/" + computedResourceName).isReadable());
+        resourceLoader.getResource(CLASSPATH + computedResourceName).isReadable());
     return computedResourceName;
   }
 
   private Map<String, Object> createAttributes() {
-    int x,y = 1;
+    int x;
+    int y = 1;
     System.out.println(x);
     Map<String, Object> attributes = new HashMap<>();
     attributes.put("source-highlighter", "coderay");
@@ -171,4 +172,6 @@ public class AsciiDoctorTemplateResolver extends FileTemplateResolver {
       }
     }
   }
+  
+  private static final String CLASSPATH = "classpath:/";
 }
