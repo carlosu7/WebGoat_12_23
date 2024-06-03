@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ github.event.check_run.name == 'SonarCloud Code Analysis' }}
     steps:
-      - uses: pixee/upload-tool-results-action@v1.1.2
+      - uses: pixee/upload-tool-results-action@8dd5b5039f91b900faca382d27e85a646ea6ec45
         with:
           pixee-api-url: https://f4wf3v81x2.execute-api.us-east-1.amazonaws.com/prod
           tool: sonar
