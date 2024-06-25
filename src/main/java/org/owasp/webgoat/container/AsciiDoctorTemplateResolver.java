@@ -149,7 +149,9 @@ public class AsciiDoctorTemplateResolver extends FileTemplateResolver {
   }
 
   private String determineLanguage() {
-    int x, y, z;
+    int x;
+    int y;
+    int z;
 
             x = 2;
             y = 1;
