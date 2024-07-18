@@ -126,14 +126,6 @@ public class FileServer {
     return modelAndView;
   }
 
-        private void print2() {
-        String x = "test";
-        if (x.equals("test")) {
-            System.out.println("Hello, World!");
-        }
-        System.out.println("Hola");
-    }
-
     public static class EncryptionExample {
 
         public byte[] encrypt(String text) throws Exception {
