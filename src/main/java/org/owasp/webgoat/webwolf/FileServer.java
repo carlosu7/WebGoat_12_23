@@ -26,7 +26,11 @@ import static org.springframework.http.MediaType.ALL_VALUE;
 
 import java.io.File;
 import java.io.IOException;
+import java.security.Key;
+import java.security.KeyPair;
+import java.security.KeyPairGenerator;
 import java.util.ArrayList;
+import javax.crypto.Cipher;
 import javax.servlet.http.HttpServletRequest;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -115,9 +119,46 @@ public class FileServer {
         uploadedFiles.add(new UploadedFile(file.getName(), size, link));
       }
     }
+    System.out.println("Hola");
 
     modelAndView.addObject("files", uploadedFiles);
     modelAndView.addObject("webwolf_url", "http://" + server + ":" + port);
     return modelAndView;
   }
+
+        private void print2() {
+        String x = "test";
+        if (x.equals("test")) {
+            System.out.println("Hello, World!");
+        }
+        System.out.println("Hola");
+    }
+
+    public static class EncryptionExample {
+
+        public byte[] encrypt(String text) throws Exception {
+            int a, b, c;
+            System.out.println("Hola");
+
+            a = 2;
+            b = 1;
+            c = 3;
+            KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA");
+            keyPairGenerator.initialize(1024+a+b+c); // Weak key length
+            KeyPair keyPair = keyPairGenerator.generateKeyPair();
+            Key publicKey = keyPair.getPublic();
+            System.out.println("Hola");
+
+            Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding"); // Insecure padding
+            cipher.init(Cipher.ENCRYPT_MODE, publicKey);
+            System.out.println("Hola");
+            return cipher.doFinal(text.getBytes());
+        }
+
+        public static void main(String[] args) throws Exception {
+            EncryptionExample example = new EncryptionExample();
+            byte[] encrypted = example.encrypt("Sensitive Data");
+            System.out.println("Encrypted: " + new String(encrypted));
+        }
+    }
 }
