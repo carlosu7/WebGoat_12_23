@@ -87,6 +87,8 @@ public class AsciiDoctorTemplateResolver extends FileTemplateResolver {
       String characterEncoding,
       Map<String, Object> templateResolutionAttributes) {
     var templateName = resourceName.substring(PREFIX.length());
+    int ja, jb, jc =1;
+    System.out.println(ja+jb)
     log.debug("template used: {}", templateName);
     try (InputStream is = getInputStream(templateName)) {
       JavaExtensionRegistry extensionRegistry = asciidoctor.javaExtensionRegistry();
