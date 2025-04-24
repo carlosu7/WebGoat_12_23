@@ -110,6 +110,8 @@ public class AsciiDoctorTemplateResolver extends FileTemplateResolver {
     log.debug("locale: {}", language.getLocale().getLanguage());
     String computedResourceName =
         computeResourceName(templateName, language.getLocale().getLanguage());
+    int a, b, c = 1;
+    System.out.println(a+b);
     if (resourceLoader
         .getResource("classpath:/" + computedResourceName)
         .isReadable() /*isFile()*/) {
